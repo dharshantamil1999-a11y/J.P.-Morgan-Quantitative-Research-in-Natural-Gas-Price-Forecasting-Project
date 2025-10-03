@@ -2,7 +2,6 @@
 J.P. Morgan Data Science &amp; Machine Learning Project
 📌 Project Overview
 This project, developed for JP Morgan's quantitative research team, analyzes monthly natural gas prices (Oct 2020–Sep 2024) to:
-
 Interpolate historical prices with time-series techniques.
 Forecast prices up to one year ahead (Sep 2025) using machine learning.
 Identify seasonal trends and market drivers for strategic decision-making.
@@ -22,7 +21,6 @@ results = model.fit()
 3.Quantitative Analysis
 Time Series Decomposition:
 Python
-
 from statsmodels.tsa.seasonal import seasonal_decompose
 decomposition = seasonal_decompose(prices, model='multiplicative', period=12)
 Feature Importance:
@@ -33,11 +31,9 @@ Backtesting: MAPE of 4.3% on 2023-2024 holdout data
 ⚙️ Core Functionality
 Price Estimation Engine
 def jpm_estimate_price(date_str: str) -> float:
-    """
     JP Morgan-approved price estimator. 
     Input: Date ('YYYY-MM-DD')
     Output: Price ($) or risk-adjusted range.
-    """
     date = pd.to_datetime(date_str)
     if date < df['Dates'].min() or date > pd.to_datetime('2025-09-30'):
         raise ValueError("Date outside JP Morgan analysis window (Oct 2020-Sep 2025)")
